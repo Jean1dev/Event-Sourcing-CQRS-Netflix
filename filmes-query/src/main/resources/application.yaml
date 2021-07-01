@@ -1,0 +1,29 @@
+server:
+  port: 8090
+
+spring:
+
+  flyway:
+    clean-disabled: false
+    clean-on-validation-error: false
+    locations: classpath:db/migration
+    table: schema_history
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgresSQLDialect
+
+  datasource:
+    plataform: postgres
+    url: jdbc:postgresql://${PG_HOST}:5432/netflix
+    username: jeanfernandes
+    password: admin
+    driveClassName: org.postgresql.Driver
+
+  rabbitmq:
+    host: ${RABBIT_HOST}
+    port: 5672
+    username: guest
+    password: guest

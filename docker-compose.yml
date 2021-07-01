@@ -20,4 +20,16 @@ services:
     ports:
     - "15672:15672"
     - "5672:5672"
-    container_name: rabbit_flixt
+    container_name: rabbit_netflix
+
+  postgreSQL:
+    image: postgres:alpine
+    ports:
+    - "5432:5432"
+    environment:
+      POSTGRES_DB: "netflix"
+      POSTGRES_USER: "jeanfernandes"
+      POSTGRES_PASSWORD: "admin"
+    volumes:
+    - "./volumes/postgres/:/data/db"
+    container_name: pg_netflix
