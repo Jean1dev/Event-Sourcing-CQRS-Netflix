@@ -20,22 +20,37 @@ public class QueueConfiguration {
     }
 
     @Bean
+    public Queue atorQ() {
+        return new Queue(ATOR_QUEUE, true, false, false);
+    }
+
+    @Bean
+    public Queue generoQ() {
+        return new Queue(GENERO_QUEUE, true, false, false);
+    }
+
+    @Bean
+    public Queue filmeQ() {
+        return new Queue(FILME_QUEUE, true, false, false);
+    }
+
+    @Bean
     public Binding ator(DirectExchange exchange) {
-        return BindingBuilder.bind(new Queue(ATOR_QUEUE, true, false, false))
+        return BindingBuilder.bind(atorQ())
                 .to(exchange)
                 .with(ATOR_QUEUE);
     }
 
     @Bean
     public Binding genero(DirectExchange exchange) {
-        return BindingBuilder.bind(new Queue(GENERO_QUEUE, true, false, false))
+        return BindingBuilder.bind(generoQ())
                 .to(exchange)
                 .with(GENERO_QUEUE);
     }
 
     @Bean
     public Binding filme(DirectExchange exchange) {
-        return BindingBuilder.bind(new Queue(FILME_QUEUE, true, false, false))
+        return BindingBuilder.bind(filmeQ())
                 .to(exchange)
                 .with(FILME_QUEUE);
     }

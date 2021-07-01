@@ -1,6 +1,9 @@
+server:
+  port: 8081
+
 spring:
   rabbitmq:
-    host: ${RABBIT_URL}
+    host: localhost
     port: 5672
     username: guest
     password: guest
@@ -8,4 +11,4 @@ spring:
 
   data:
     mongodb:
-      uri: ${MONGO_URL}
+      uri: mongodb://localhost:27017/netflix_backend

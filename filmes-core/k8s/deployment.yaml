@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filmes-core
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: "25%"
+      maxUnavailable: "25%"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filmes-core
+  template:
+    metadata:
+      labels:
+        app: filmes-core
+    spec:
+      containers:
+        - name: filmes-core
+          image: jeanlucafp/filmes-core:2
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongodb-service:27017/netflix_db
+            - name: RABBIT_URL
+              value: rabbitmq-service
