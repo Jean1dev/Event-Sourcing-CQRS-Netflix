@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  mongodb:
+    image: mongo:3.6
+    ports:
+    - "27017:27017"
+    volumes:
+    - /volumes/mongodb:/data/db
+    container_name: mongo_netflix
+
+  rabbitMQ:
+    image: rabbitmq:3-management
+    hostname: "rabbit1"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "HFEWIFHWIUEGHI"
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+    - "15672:15672"
+    - "5672:5672"
+    container_name: rabbit_flixt
