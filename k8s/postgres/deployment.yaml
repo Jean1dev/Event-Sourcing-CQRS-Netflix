@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:alpine
+          ports:
+            - containerPort: 5432
+          resources: {}
+          env:
+            - name: POSTGRES_DB
+              value: netflix
+            - name: POSTGRES_USER
+              value: jeanfernandes
+            - name: POSTGRES_PASSWORD
+              value: admin

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filmes-query
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: "25%"
+      maxUnavailable: "25%"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filmes-query
+  template:
+    metadata:
+      labels:
+        app: filmes-query
+    spec:
+      containers:
+        - name: filmes-query
+          image: jeanlucafp/filmes-query:2
+          ports:
+            - containerPort: 8081
+          env:
+            - name: PG_HOST
+              value: postgres-service
+            - name: RABBIT_HOST
+              value: rabbitmq-service
