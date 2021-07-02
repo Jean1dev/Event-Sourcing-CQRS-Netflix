@@ -1,14 +1,14 @@
 CREATE TABLE public.ator (
     id VARCHAR(36) NOT NULL,
     nome VARCHAR NOT NULL,
-    filme_id VARCHAR(36) NOT NULL,
+    filme_id VARCHAR(36) NULL,
     CONSTRAINT "PK_ATOR_TABLE" PRIMARY KEY (id)
 );
 
 CREATE TABLE public.genero (
     id VARCHAR(36) NOT NULL,
     titulo VARCHAR NOT NULL,
-    filme_id VARCHAR(36) NOT NULL,
+    filme_id VARCHAR(36) NULL,
     CONSTRAINT "PK_GENERO_TABLE" PRIMARY KEY (id)
 );
 
@@ -16,9 +16,9 @@ CREATE TABLE public.filme (
     id VARCHAR(36) NOT NULL,
     titulo VARCHAR NOT NULL,
     subtitulo VARCHAR NULL,
-    dataLancamento DATE NOT NULL,
-    duracao INT NULL,
-    isLike BOOL NULL,
+    data_lancamento DATE NOT NULL,
+    duracao bigint NULL,
+    is_like BOOL NULL,
     CONSTRAINT "PK_FILME_TABLE" PRIMARY KEY (id)
 );
 
