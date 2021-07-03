@@ -29,6 +29,8 @@ public class FilmeCriadoEvent {
 
     private Boolean like;
 
+    private String filmeURL;
+
     private Collection<String> generos;
 
     private Collection<String> elenco;

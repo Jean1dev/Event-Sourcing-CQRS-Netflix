@@ -38,6 +38,9 @@ public class Filme {
     @Column(name = "is_like")
     private Boolean isLike;
 
+    @Column(name = "filme_url")
+    private String filmeURL;
+
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "filme", cascade = CascadeType.ALL)
     private Set<Genero> generos;

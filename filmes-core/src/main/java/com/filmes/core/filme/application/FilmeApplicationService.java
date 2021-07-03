@@ -1,5 +1,6 @@
 package com.filmes.core.filme.application;
 
+import com.filmes.core.filme.application.commands.AdicionarUrlCommand;
 import com.filmes.core.filme.application.commands.CriarFilmeCommand;
 import com.filmes.core.filme.domain.Filme;
 import com.filmes.core.filme.domain.repository.FilmeRepository;
@@ -31,5 +32,13 @@ public class FilmeApplicationService {
 
         rabbitTemplate.convertAndSend(FILME_QUEUE, filme);
         return filme.getId();
+    }
+
+    public void adicionarUrlDoFilme(AdicionarUrlCommand command) {
+        Filme filme = repository.findById(command.getFilmeId()).orElseThrow();
+        filme.setFilmeURL(command.getURL());
+        repository.save(filme);
+
+        rabbitTemplate.convertAndSend(FILME_QUEUE, filme);
     }
 }

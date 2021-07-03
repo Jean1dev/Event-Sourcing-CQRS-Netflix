@@ -1,0 +1,1 @@
+ALTER TABLE public.filme ADD COLUMN filme_url VARCHAR NULL

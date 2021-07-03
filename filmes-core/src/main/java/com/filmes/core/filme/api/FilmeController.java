@@ -1,7 +1,9 @@
 package com.filmes.core.filme.api;
 
+import com.filmes.core.filme.api.dto.AdicionarUrlDto;
 import com.filmes.core.filme.api.dto.FilmeDto;
 import com.filmes.core.filme.application.FilmeApplicationService;
+import com.filmes.core.filme.application.commands.AdicionarUrlCommand;
 import com.filmes.core.filme.application.commands.CriarFilmeCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,5 +35,13 @@ public class FilmeController {
                 .build());
 
         return ResponseEntity.ok(filme);
+    }
+
+    @PostMapping(path = "adicionar-filme-url")
+    public void adicionarUrlDoFilme(@RequestBody AdicionarUrlDto dto) {
+        service.adicionarUrlDoFilme(AdicionarUrlCommand.builder()
+                .filmeId(dto.getFilmeId())
+                .URL(dto.getUrl())
+                .build());
     }
 }

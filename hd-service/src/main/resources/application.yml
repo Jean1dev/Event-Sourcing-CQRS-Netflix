@@ -1,0 +1,15 @@
+server:
+  port: 8082
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10024KB
+      max-request-size: 10024KB
+
+s3:
+  access:
+    key: AKIAIOSFODNN7EXAMPLE
+    secret: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    host: http://localhost:9444/s3
+    bucket: filmes

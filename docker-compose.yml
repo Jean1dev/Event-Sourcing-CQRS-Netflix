@@ -33,3 +33,9 @@ services:
     volumes:
     - "./volumes/postgres/:/data/db"
     container_name: pg_netflix
+
+  s3ninja:
+    image: kcomlabs/s3ninja
+    ports:
+    - "9444:9444"
+    container_name: s3_netflix

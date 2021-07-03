@@ -30,6 +30,8 @@ public class FilmeDto {
 
     private Duration duracao;
 
+    private String filmeURL;
+
     private Boolean isLike;
 
     private Set<String> generos;
@@ -52,6 +54,7 @@ public class FilmeDto {
                 .subtitulo(filme.getSubtitulo())
                 .dataLancamento(filme.getDataLancamento())
                 .duracao(filme.getDuracao())
+                .filmeURL(filme.getFilmeURL())
                 .isLike(filme.getIsLike())
                 .generos(filme.getGeneros().stream().map(Genero::getTitulo).collect(Collectors.toSet()))
                 .atores(filme.getAtores().stream().map(Ator::getNome).collect(Collectors.toSet()))

@@ -17,6 +17,7 @@
     <modules>
         <module>filmes-core</module>
         <module>filmes-query</module>
+        <module>hd-service</module>
     </modules>
 
 </project>

@@ -30,6 +30,7 @@ public class FilmeCriadoService {
                 .atores(event.getElenco().stream().map(this::getAtor).collect(Collectors.toSet()))
                 .dataLancamento(event.getDataLancamento())
                 .duracao(event.getDuracao())
+                .filmeURL(event.getFilmeURL())
                 .generos(event.getGeneros().stream().map(this::getGenero).collect(Collectors.toSet()))
                 .isLike(event.getLike())
                 .subtitulo(event.getSubtitulo())
