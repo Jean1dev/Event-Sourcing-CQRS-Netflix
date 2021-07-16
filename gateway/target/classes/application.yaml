@@ -1,0 +1,17 @@
+server:
+  port: 8090
+
+zuul:
+  host:
+    connect-timeout-millis: 1000
+    socket-timeout-millis: 60000
+  routes:
+    hdservice:
+      path: /video/**
+      url: http://localhost:8082
+    query:
+      path: /query/**
+      url: http://localhost:8081
+    core:
+      path: /core/**
+      url: http://localhost:8080
