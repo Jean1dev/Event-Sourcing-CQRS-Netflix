@@ -18,6 +18,8 @@
         <module>filmes-core</module>
         <module>filmes-query</module>
         <module>hd-service</module>
+        <module>gateway</module>
+        <module>discovery</module>
     </modules>
 
 </project>
